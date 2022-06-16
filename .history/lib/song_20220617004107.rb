@@ -24,6 +24,7 @@ class Song
       INSERT INTO songs (name, album)
       VALUES (?, ?)
     SQL
+
     DB[:conn].execute(sql, self.name, self.album)
 
     # get the song ID from the database and save it to the Ruby instance
@@ -31,10 +32,7 @@ class Song
 
     # return the Ruby instance
     self
+
   end
 
-  def self.create(name:, album:)
-    song = Song.new(name: name, album: album)
-    song.save
-  end
 end
